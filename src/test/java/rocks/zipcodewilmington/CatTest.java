@@ -2,7 +2,9 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Cat;
+import rocks.zipcodewilmington.animals.Mammal;
 
 import java.util.Date;
 
@@ -40,4 +42,56 @@ public class CatTest {
         Assert.assertEquals(givenId, retrievedId);
     }
 
+    @Test
+    public void setName(){
+        Cat cat = new Cat();
+        cat.setName("Fluff");
+        String expected = "Fluff";
+        String actual = cat.getName();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void catSpeak(){
+        Cat cat = new Cat();
+        String expected = "meow!";
+        String actual = cat.speak();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setBirthDate(){
+        Cat cat = new Cat();
+        Date expected = new Date();
+        cat.setBirthDate(expected);
+        Assert.assertEquals(expected, cat.getBirthDate());
+
+    }
+
+    @Test
+    public void eat(){
+        Cat cat = new Cat();
+        cat.eat(new Food("catFood"));
+        Integer expected = 1;
+        Assert.assertEquals(expected, cat.getNumberOfMealsEaten());
+    }
+
+    @Test
+    public void getId(){
+        Cat cat = new Cat();
+        int expected = cat.getId();
+        Assert.assertEquals(expected, 0);
+    }
+
+    @Test
+    public void Animal(){
+        Cat cat = new Cat();
+        Assert.assertTrue(cat instanceof Animal);
+    }
+
+    @Test
+    public void Mammal(){
+        Cat cat = new Cat();
+        Assert.assertTrue(cat instanceof Mammal);
+    }
 }
