@@ -64,9 +64,10 @@ public class DogHouseTest {
     public void getDogId(){
         Dog dog = new Dog();
         DogHouse.add(dog);
-        Integer expected = 0;
-        Integer actual = dog.getId();
-        Assert.assertEquals(expected, actual);
+//        Integer expected = 0;
+//        Integer actual = dog.getId();
+//        DogHouse.getDogById(dog.getId());
+        Assert.assertEquals(dog, DogHouse.getDogById(dog.getId()));
     }
 
     @Test

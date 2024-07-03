@@ -45,9 +45,9 @@ public class CatHouseTest {
     public void getId(){
         Cat cat = new Cat();
         CatHouse.add(cat);
-        Integer actual = cat.getId();
-        Integer expected = 0;
-        Assert.assertEquals(expected, actual);
+//        Integer actual = cat.getId();
+//        Integer expected = 0;
+        Assert.assertEquals(cat, CatHouse.getCatById(cat.getId()));
     }
 
     @Test
