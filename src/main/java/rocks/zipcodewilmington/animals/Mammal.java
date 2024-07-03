@@ -22,7 +22,6 @@ public abstract class Mammal implements Animal {
     }
 
     public Mammal() {
-
         this.id = 0;
         this.eatenMeals = new ArrayList<>();
     }

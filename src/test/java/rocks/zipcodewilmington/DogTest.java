@@ -2,7 +2,11 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Dog;
+import rocks.zipcodewilmington.animals.Mammal;
+
+import java.util.Date;
 
 /**
  * @author leon on 4/19/18.
@@ -28,4 +32,56 @@ public class DogTest {
         String dogName = dog.getName();
         Assert.assertEquals(dogName, givenName);
     }
+
+    @Test
+    public void newDog(){
+        Dog dog = new Dog();
+        dog.setName("Roger");
+        String expected = "Roger";
+        dog.setName(expected);
+        Assert.assertEquals(expected, dog.getName());
+    }
+
+    @Test
+    public void speak(){
+        Dog dog = new Dog();
+        String expected = "bark!";
+        Assert.assertEquals(expected, dog.speak());
+    }
+
+    @Test
+    public void setBirthDate(){
+        Dog dog = new Dog();
+        Date expected = new Date();
+        dog.setBirthDate(expected);
+        Assert.assertEquals(expected, dog.getBirthDate());
+    }
+
+    @Test
+    public void eat(){
+        Dog dog = new Dog();
+        dog.eat(new Food("dogFood"));
+        Integer expected = 1;
+        Assert.assertEquals(expected, dog.getNumberOfMealsEaten());
+    }
+
+    @Test
+    public void getId(){
+        Dog dog = new Dog();
+        int expected = dog.getId();
+        Assert.assertEquals(expected, 0);
+    }
+
+    @Test
+    public void AnimalInheritance(){
+        Dog dog = new Dog();
+        Assert.assertTrue(dog instanceof Animal);
+    }
+
+    @Test
+    public void MammalInheritance(){
+        Dog dog = new Dog();
+        Assert.assertTrue(dog instanceof Mammal);
+    }
+
 }
