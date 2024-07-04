@@ -1,5 +1,6 @@
 package rocks.zipcodewilmington;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Dog;
@@ -12,6 +13,12 @@ import java.util.Date;
  * @author leon on 4/19/18.
  */
 public class DogHouseTest {
+
+    @After
+    public void tearDown(){
+        DogHouse.clear();
+    }
+
     // TODO - Create tests for `void add(Dog dog)`
     // TODO - Create tests for `void remove(Integer id)`
     // TODO - Create tests for `void remove(Dog dog)`

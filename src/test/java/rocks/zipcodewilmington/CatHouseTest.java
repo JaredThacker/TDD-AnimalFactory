@@ -1,7 +1,9 @@
 package rocks.zipcodewilmington;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.animal_storage.CatHouse;
 
@@ -9,11 +11,13 @@ import rocks.zipcodewilmington.animals.animal_storage.CatHouse;
  * @author leon on 4/19/18.
  */
 public class CatHouseTest {
+
     // TODO - Create tests for `void add(Cat cat)`
     // TODO - Create tests for `void remove(Integer id)`
     // TODO - Create tests for `void remove(Cat cat)`
     // TODO - Create tests for `Cat getCatById(Integer id)`
     // TODO - Create tests for `Integer getNumberOfCats()`
+
 
     @Test
     public void add(){
@@ -23,6 +27,11 @@ public class CatHouseTest {
         Assert.assertEquals(expected, CatHouse.getNumberOfCats());
     }
 
+    @After
+    public void tearDown(){
+        CatHouse.clear();
+    }
+
     @Test
     public void removeId(){
         Cat cat = new Cat();
@@ -30,7 +39,10 @@ public class CatHouseTest {
         CatHouse.remove(CatHouse.getCatById(cat.getId()));
         Integer expected = 0;
         Assert.assertEquals(expected, CatHouse.getNumberOfCats());
+        CatHouse.clear();
     }
+
+    @After
 
     @Test
     public void removeCat(){
