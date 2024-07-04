@@ -52,7 +52,7 @@ public class DogHouseTest {
     public void removeId(){
         Dog dog = new Dog();
         DogHouse.add(dog);
-        DogHouse.remove(DogHouse.getDogById(dog.getId()));
+        DogHouse.remove(dog.getId());
         Integer expected = 0;
         Assert.assertEquals(expected, DogHouse.getNumberOfDogs());
     }
@@ -71,9 +71,6 @@ public class DogHouseTest {
     public void getDogId(){
         Dog dog = new Dog();
         DogHouse.add(dog);
-//        Integer expected = 0;
-//        Integer actual = dog.getId();
-//        DogHouse.getDogById(dog.getId());
         Assert.assertEquals(dog, DogHouse.getDogById(dog.getId()));
     }
 

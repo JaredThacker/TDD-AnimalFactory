@@ -36,11 +36,12 @@ public class CatHouseTest {
     public void removeId(){
         Cat cat = new Cat();
         CatHouse.add(cat);
-        CatHouse.remove(CatHouse.getCatById(cat.getId()));
+        CatHouse.remove(cat.getId());
         Integer expected = 0;
         Assert.assertEquals(expected, CatHouse.getNumberOfCats());
         CatHouse.clear();
     }
+
 
     @After
 
